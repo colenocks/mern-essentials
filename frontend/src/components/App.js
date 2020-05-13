@@ -41,7 +41,15 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col s12">Menu</div>
+          <div className="col s12">
+            <nav>
+              <div className="nav-wrapper blue darken-1">
+                <a href="/" className="brand-logo">
+                  Socceer Management
+                </a>
+              </div>
+            </nav>
+          </div>
         </div>
         <div className="row">
           <div className="col s3">
@@ -51,7 +59,7 @@ class App extends Component {
             />
           </div>
           <div className="col s9">
-            <PlayerSingle />
+            <PlayerSingle player={this.state.currentPlayer} />
           </div>
         </div>
         <div className="row">

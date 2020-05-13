@@ -12,7 +12,7 @@ const PlayerList = (props) => {
             href="#!"
             className="collection-item"
             key={item._id}
-            onClick={() => props.updateCurrentPlayer}
+            onClick={() => props.updateCurrentPlayer(item)}
           >
             {item.firstName} {item.lastName}
           </a>
