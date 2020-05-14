@@ -13,7 +13,7 @@ const PlayerSingle = (props) => {
           </div>
           <div className="card-content">
             <p>
-              Phone: {props.player.phone}- Email: {props.player.phone}
+              Phone: {props.player.phone}- Email: {props.player.email}
             </p>
             <p>
               Speed: {props.player.speed}- Strength: {props.player.strength}
