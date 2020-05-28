@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = "http://localhost:4000/players";
+    const url = "http://localhost:4000";
 
     axios
       .get(url)
@@ -37,6 +37,7 @@ class App extends Component {
       currentPlayer: item,
     });
   }
+
   render() {
     return (
       <div className="container-fluid">

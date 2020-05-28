@@ -3,7 +3,7 @@ import React from "react";
 const PlayerSingle = (props) => {
   return (
     <div className="row">
-      <div className="col s12 m7">
+      <div className="col s12 m8">
         <div className="card">
           <div className="card-image">
             <img src="soccer.jpg" alt="soccer" />
@@ -13,14 +13,53 @@ const PlayerSingle = (props) => {
           </div>
           <div className="card-content">
             <p>
-              Phone: {props.player.phone}- Email: {props.player.email}
+              <strong>Phone:</strong>{" "}
+              {props.player.phone ? props.player.phone : "N/A"}
             </p>
             <p>
-              Speed: {props.player.speed}- Strength: {props.player.strength}
+              <strong>Email:</strong> {props.player.email}
+            </p>
+            <p>
+              <strong>Speed:</strong>{" "}
+              {props.player.speed ? props.player.speed : "N/A"}
+            </p>
+            <p>
+              <strong>Strength:</strong>{" "}
+              {props.player.strength ? props.player.strength : "N/A"}
+            </p>
+            <strong>Stamina:</strong>{" "}
+            {props.player.stamina ? props.player.stamina : "N/A"}
+            <p></p>
+            <p>
+              <strong>Technique: </strong>
+              {props.player.technique ? props.player.technique : "N/A"}
+            </p>
+            <p>
+              <strong>Team:</strong>{" "}
+              {props.player.team ? props.player.team : "N/A"}
             </p>
           </div>
           <div className="card-action">
-            <p>Team: {props.player.team}</p>
+            <div className="row">
+              <div className="col s3">
+                <button
+                  type="submit"
+                  className="btn waves-effect waves-dark"
+                  name="action"
+                >
+                  Edit
+                </button>
+              </div>
+              <div className="col s3">
+                <button
+                  type="button"
+                  className="btn waves-effect waves-dark"
+                  name="action"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

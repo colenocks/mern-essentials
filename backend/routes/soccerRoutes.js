@@ -7,10 +7,10 @@ import {
 } from "../controllers/playerController";
 
 const routes = (app) => {
-  app.route("/players").post(addNewPlayer).get(getAllPlayers);
+  app.route("/").post(addNewPlayer).get(getAllPlayers);
 
   app
-    .route("/player/:playerid")
+    .route("/:playerid")
     .get(getPlayerWithID)
     .put(updatePlayer)
     .delete(deletePlayer);

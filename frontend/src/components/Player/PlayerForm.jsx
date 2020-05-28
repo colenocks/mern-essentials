@@ -7,7 +7,7 @@ class PlayerForm extends Component {
   submitPlayer = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/players", {
+      .post("http://localhost:4000", {
         firstName: this.firstNameField.value,
         lastName: this.lastNameField.value,
         email: this.emailField.value,
@@ -30,7 +30,10 @@ class PlayerForm extends Component {
     return (
       <div className="row">
         <h3 className="center">Add a new player</h3>
-        <form className="col s12" onSubmit={this.submitPlayer}>
+        <form
+          className="col s9 offset-s3 container-fluid"
+          onSubmit={this.submitPlayer}
+        >
           <div className="row">
             <div className="input-field col s6">
               <input
