@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       players: [],
       currentPlayer: {},
+      canDelete: false,
     };
 
     //bind the function so to use in a class
@@ -18,13 +19,33 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = "http://localhost:4000";
+    this.getAllPlayers();
+  }
 
+  deletePlayer(playerid) {
+    const url = "http://localhost:5000/" + playerid;
+    axios
+      .delete(url)
+      .then((result) => {
+        if (result) {
+          this.setState({ players: result.data.Player }, () => {
+            window.M.toast({ html: result.data.message });
+            this.getAllPlayers();
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  getAllPlayers() {
+    const url = "http://localhost:5000";
     axios
       .get(url)
-      .then((Response) => {
+      .then((result) => {
         this.setState({
-          players: Response.data,
+          players: result.data,
         });
       })
       .catch((err) => {
@@ -35,6 +56,7 @@ class App extends Component {
   updateCurrentPlayer(item) {
     this.setState({
       currentPlayer: item,
+      canDelete: true,
     });
   }
 
@@ -53,18 +75,18 @@ class App extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col s3">
+          <div className="col s4">
             <PlayerList
               players={this.state.players}
               updateCurrentPlayer={this.updateCurrentPlayer}
             />
           </div>
-          <div className="col s9">
-            <PlayerSingle player={this.state.currentPlayer} />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col s12">
+          <div className="col s8">
+            <PlayerSingle
+              player={this.state.currentPlayer}
+              canDelete={this.state.canDelete}
+              deletePlayer={this.deletePlayer}
+            />
             <PlayerForm />
           </div>
         </div>

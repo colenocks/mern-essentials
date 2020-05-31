@@ -14,7 +14,7 @@ const PlayerList = (props) => {
             key={item._id}
             onClick={() => props.updateCurrentPlayer(item)}
           >
-            {item.firstName} {item.lastName}
+            {item.lastName} {item.firstName}
           </a>
         ))}
       </ul>

@@ -44,7 +44,7 @@ export const updatePlayer = (req, res) => {
       if (err) {
         res.send(err);
       }
-      res.json({ message: "player with id has been updated" });
+      res.json({ Player, message: "player with id has been updated" });
     }
   );
 };
@@ -55,6 +55,6 @@ export const deletePlayer = (req, res) => {
     if (err) {
       res.send(err);
     }
-    res.json({ message: "Player successfully deleted" });
+    res.json({ Player, message: "Player successfully deleted" });
   });
 };

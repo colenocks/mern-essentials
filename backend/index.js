@@ -5,11 +5,11 @@ import cors from "cors";
 import routes from "./routes/soccerRoutes";
 
 const app = express();
-const PORT = 4000;
+const PORT = 5000;
 
 //mongodb connection
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/soccerDB", {
+mongoose.connect("mongodb://localhost:27017/soccerDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

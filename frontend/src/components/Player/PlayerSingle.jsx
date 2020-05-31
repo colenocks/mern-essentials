@@ -39,28 +39,36 @@ const PlayerSingle = (props) => {
               {props.player.team ? props.player.team : "N/A"}
             </p>
           </div>
-          <div className="card-action">
-            <div className="row">
-              <div className="col s3">
-                <button
-                  type="submit"
-                  className="btn waves-effect waves-dark"
-                  name="action"
-                >
-                  Edit
-                </button>
-              </div>
-              <div className="col s3">
-                <button
-                  type="button"
-                  className="btn waves-effect waves-dark"
-                  name="action"
-                >
-                  Delete
-                </button>
+          <form>
+            <input type="hidden" name="id" value={props.player._id || ""} />
+            <div className="card-action">
+              <div className="row">
+                <div className="col s3">
+                  <button
+                    type="submit"
+                    className="btn waves-effect waves-dark"
+                    name="action"
+                  >
+                    Edit
+                  </button>
+                </div>
+                <div className="col s3">
+                  <button
+                    type="button"
+                    className="btn waves-effect waves-dark"
+                    name="action"
+                    onClick={() =>
+                      props.canDelete
+                        ? props.deletePlayer(props.player._id)
+                        : window.M.toast({ html: "Select a player first" })
+                    }
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
